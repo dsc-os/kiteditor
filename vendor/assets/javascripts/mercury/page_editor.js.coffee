@@ -187,7 +187,8 @@ class @Mercury.PageEditor
 
   beforeUnload: ->
     if Mercury.changes && !Mercury.silent
-      return Mercury.I18n('You have unsaved changes.  Are you sure you want to leave without saving them first?')
+      return Mercury.I18n('You might have unsaved changes.  Are you sure you want to leave without saving them first?')
+    Mercury.trigger('unload')
     return null
 
 
