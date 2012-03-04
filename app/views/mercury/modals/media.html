@@ -9,7 +9,11 @@
           <li id="media_image_url_input" class="string input optional stringish">
             <label class="label" for="media_image_url"><input name="media_type" type="radio" value="image_url" checked="checked"/>URL</label>
             <input class="selectable" id="media_image_url" name="media[image_url]" type="text"/>
-          </li>
+            </li>
+            <li>
+            <label class="label">&nbsp;</label>
+            <a href="#">Browse</a>
+            </li>
         </ol>
       </fieldset>
 
@@ -28,7 +32,7 @@
       </fieldset>
 
       <fieldset class="inputs">
-        <legend><span>Options</span></legend>
+        <legend><span>Media Options</span></legend>
         <ol>
           <div id="image_url" class="media-options">
             <li id="media_image_alignment_input" class="select input optional">
@@ -43,6 +47,16 @@
                 <option value="absmiddle">Absolute Middle</option>
                 <option value="absbottom">Absolute Bottom</option>
               </select>
+            </li>
+            <li id="media_image_width_input" class="string input optional stringish">
+              <label class="label" for="media_image_width">Width</label>
+              <input id="media_image_width" name="media[image_width]" type="text" value=""/>
+            </li>
+            <li id="media_image_height_input" class="string input optional stringish">
+              <label class="label" for="media_image_height">Height</label>
+              <input id="media_image_height" name="media[image_height]" type="text" value=""/>
+              <label class="label">Note:</label>
+              Specify just one to maintain the current width:height ratio
             </li>
           </div>
           <div id="youtube_url" class="media-options" style="display:none">

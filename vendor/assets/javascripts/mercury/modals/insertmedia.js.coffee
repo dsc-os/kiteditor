@@ -19,6 +19,10 @@
     if selection.is && image = selection.is('img')
       @element.find('#media_image_url').val(image.attr('src'))
       @element.find('#media_image_alignment').val(image.attr('align'))
+      width = image.width()
+      @element.find('#media_image_width').val(width) if width && width>0
+      height = image.height()
+      @element.find('#media_image_height').val(height) if height && height>0
       setTimeout 300, => @element.find('#media_image_url').focus()
 
     # if we're editing an iframe (assume it's a video for now)
@@ -47,6 +51,24 @@
       when 'image_url'
         attrs = {src: @element.find('#media_image_url').val()}
         attrs['align'] = alignment if alignment = @element.find('#media_image_alignment').val()
+        width = @element.find('#media_image_width').val()
+        height = @element.find('#media_image_height').val()
+        attrs['width'] = width if width
+        attrs['height'] = height if height
+        size = 'original'
+        if width>0 || height>0
+          Mercury.log("Adjusting image file")
+          biggest = Math.max(height,width)
+          if biggest<=100
+            size = 'thumb'
+          else if biggest<=300
+            size = 'medium'
+          else if biggest<=600
+            size = 'large'
+        path_bits = attrs['src'].split('/')
+        path_bits[4] = size
+        attrs['src'] = path_bits.join('/')
+        Mercury.log('Image:' + attrs['src'] + ' Size: ' + width + 'x' + height)
         Mercury.trigger('action', {action: 'insertImage', value: attrs})
 
       when 'youtube_url'
