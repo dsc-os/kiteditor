@@ -23,6 +23,7 @@
 
     # if we're editing a link prefill the information
     container = selection.commonAncestor(true).closest('a') if selection && selection.commonAncestor
+
     if container && container.length
       existingLink = container
 
@@ -57,6 +58,8 @@
 
     # get the text content
     @element.find('#link_text').val(selection.textContent()) if selection.textContent
+    selection_source = selection.fragment.firstChild.outerHTML
+    @element.find('#link_text').val(selection_source) if selection_source
 
   # build the link on form submission
   @element.find('form').on 'submit', (event) =>

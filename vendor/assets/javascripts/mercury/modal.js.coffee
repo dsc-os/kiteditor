@@ -69,6 +69,10 @@ jQuery.extend Mercury.modal,
         @load()
 
 
+  set_height: (height) ->
+    @fix_height = height
+    this.resize(true)
+
   resize: (keepVisible) ->
     visibility = if keepVisible then 'visible' else 'hidden'
 
@@ -83,6 +87,8 @@ jQuery.extend Mercury.modal,
 
     width = @minWidth if width < @minWidth
     height = Mercury.displayRect.fullHeight - 20 if height > Mercury.displayRect.fullHeight - 20 || @options.fullHeight
+    if @fix_height
+      height = @fix_height
 
     @element.stop().animate {left: (Mercury.displayRect.width - width) / 2, width: width, height: height}, 200, 'easeInOutSine', =>
       @contentElement.css({visibility: 'visible', display: 'block'})

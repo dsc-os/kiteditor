@@ -1,4 +1,4 @@
-<form id="mercury_media" style="width:600px">
+<form id="mercury_media" style="width:800px">
 
   <div class="mercury-display-pane-container">
     <div class="mercury-display-pane">
@@ -12,12 +12,15 @@
             </li>
             <li>
             <label class="label">&nbsp;</label>
-            <a href="#">Browse other images</a>
+            <a href="#" onClick="show_image_browser();">Browse Images</a>
             </li>
-        </ol>
+          </ol>
       </fieldset>
 
-      <fieldset class="inputs">
+      <div id="image_browser" style="display: none">
+        Loading.  Please wait...
+      </div>
+      <fieldset id="video_fields" class="inputs">
         <legend><span>Videos</span></legend>
         <ol>
           <li id="media_youtube_url_input" class="string input optional stringish">
@@ -31,7 +34,7 @@
         </ol>
       </fieldset>
 
-      <fieldset class="inputs">
+      <fieldset id="media_options" class="inputs">
         <legend><span>Media Options</span></legend>
         <ol>
           <div id="image_url" class="media-options">
@@ -55,7 +58,7 @@
             <li id="media_image_height_input" class="string input optional stringish">
               <label class="label" for="media_image_height">Height</label>
               <input id="media_image_height" name="media[image_height]" type="text" value=""/>
-              <label class="label">Note:</label>
+              <label class="label">&nbsp;</label>
               Specify just one to maintain the current width:height ratio
             </li>
           </div>
@@ -85,7 +88,7 @@
     </div>
   </div>
 
-  <div class="mercury-display-controls">
+  <div id="media_buttons" class="mercury-display-controls">
     <fieldset class="buttons">
       <ol>
         <li class="commit button"><input class="submit" name="commit" type="submit" value="Insert Media"/></li>
@@ -94,3 +97,7 @@
   </div>
 
 </form>
+
+<div id="image_browser" style="display: none;">
+  Image browser to appear here
+</div>

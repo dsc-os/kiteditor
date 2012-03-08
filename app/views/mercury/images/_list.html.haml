@@ -1,0 +1,22 @@
+= form_for :search do |f|
+  = f.text_field :search
+  = f.submit "Search"
+  or
+  = link_to "Reset", "/mercury/images"
+  
+= will_paginate @images
+
+%table
+  %tr
+    %th Image
+    %th Filename
+    %th Tags (click to edit)
+
+  - @images.each do |image|
+    %tr
+      %td
+        = image_tag image.url(:thumb)
+      %td
+        = link_to_function image.image_file_name, "parent.set_image_url('#{image.url(:original)}');"
+      %td.tags
+        = best_in_place image, :tags, :type=>:input

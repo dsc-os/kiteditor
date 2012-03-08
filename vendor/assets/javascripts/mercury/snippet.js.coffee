@@ -51,6 +51,7 @@ class @Mercury.Snippet
 
 
   loadPreview: (element, callback = null) ->
+    #    @options_to_save = @options
     jQuery.ajax Mercury.config.snippets.previewUrl.replace(':name', @name), {
       headers: Mercury.ajaxHeaders()
       type: Mercury.config.snippets.method
@@ -66,6 +67,7 @@ class @Mercury.Snippet
 
   displayOptions: ->
     Mercury.snippet = @
+#    @options = @options_to_save if @options_to_save
     Mercury.modal Mercury.config.snippets.optionsUrl.replace(':name', @name), {
       title: 'Snippet Options',
       handler: 'insertSnippet',
@@ -79,6 +81,7 @@ class @Mercury.Snippet
     delete(@options['utf8'])
     @version += 1
     @history.push(@options)
+    Mercury.log("Set Options: ", @options)
 
 
   setVersion: (version = null) ->
@@ -91,6 +94,7 @@ class @Mercury.Snippet
 
 
   serialize: ->
+#    Mercury.log("Serialising options: " , @options_to_save)
     return {
       name: @name
       options: @options

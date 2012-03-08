@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('rails', [">= 3.1.0"])
   s.add_runtime_dependency('paperclip')
   s.add_runtime_dependency('coffee-script')
-
+  s.add_runtime_dependency('best_in_place')
 
   # Development Dependencies
   s.add_development_dependency('rocco')
