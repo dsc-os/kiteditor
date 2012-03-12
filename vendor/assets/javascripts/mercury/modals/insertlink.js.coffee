@@ -58,7 +58,7 @@
 
     # get the text content
     @element.find('#link_text').val(selection.textContent()) if selection.textContent
-    selection_source = selection.fragment.firstChild.outerHTML
+    selection_source = selection.fragment.firstChild.outerHTML  if selection.fragment && selection.fragment.firstChild
     @element.find('#link_text').val(selection_source) if selection_source
 
   # build the link on form submission
