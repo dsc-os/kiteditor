@@ -100,6 +100,7 @@ class @Mercury.PageEditor
 
 
   bindEvents: ->
+    Mercury.on 'autosave', =>  @autosave()
     Mercury.on 'initialize:frame', => setTimeout(100, @initializeFrame)
     Mercury.on 'focus:frame', => @iframe.focus()
     Mercury.on 'focus:window', => setTimeout(10, => @focusableElement.focus())
@@ -197,6 +198,20 @@ class @Mercury.PageEditor
       return region if region.name == id
     return null
 
+  autosave: ->
+    Mercury.log("Autosave")
+    url = @saveUrl ? Mercury.saveURL ? @iframeSrc()
+    data = @serialize()
+    data = jQuery.toJSON(data) unless @options.saveStyle == 'form'
+    method = 'PUT' if @options.saveMethod == 'PUT'
+    jQuery.ajax url+"&auto=1", {
+      headers: Mercury.ajaxHeaders()
+      type: method || 'POST'
+      dataType: @options.saveDataType || 'json'
+      data: {content: data, _method: method}
+      success: =>
+        Mercury.trigger('autosaved')
+    }
 
   save: (callback) ->
     url = @saveUrl ? Mercury.saveURL ? @iframeSrc()
