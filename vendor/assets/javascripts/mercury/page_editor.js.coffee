@@ -220,5 +220,7 @@ class @Mercury.PageEditor
 
   serialize: ->
     serialized = {}
-    serialized[region.name] = region.serialize() for region in @regions
+    for region in @regions
+      Mercury.log("region", region)
+      serialized[region.name] = region.serialize() 
     return serialized

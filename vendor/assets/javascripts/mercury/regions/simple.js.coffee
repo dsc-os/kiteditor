@@ -1,5 +1,5 @@
 # todo:
-# context for the toolbar buttons and groups needs to change so we can do the following:
+
 # how to handle context for buttons?  if the cursor is within a bold area (**bo|ld**), or selecting it -- it would be
 # nice if we could activate the bold button for instance.
 

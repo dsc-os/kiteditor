@@ -1,16 +1,17 @@
 class Mercury::Image < ActiveRecord::Base
+ 
 
-  self.table_name = :mercury_images
+  #self.table_name = :mercury_images
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :large=>"600x600>", :thumb => "100x100>" }
+  #has_attached_file :image, :styles => { :medium => "300x300>", :large=>"600x600>", :thumb => "100x100>" }
 
-  delegate :url, :to => :image
+  #delegate :url, :to => :image
 
-  def serializable_hash(options = nil)
-    options ||= {}
-    options[:methods] ||= []
-    options[:methods] << :url
-    super(options)
-  end
+  #def serializable_hash(options = nil)
+  #  options ||= {}
+  #  options[:methods] ||= []
+  #  options[:methods] << :url
+  #  super(options)
+  #end
 
 end

@@ -65,10 +65,10 @@
             size = 'medium'
           else if biggest<=600
             size = 'large'
+
         path_bits = attrs['src'].split('/')
-        path_bits[4] = size
+        path_bits[5] = size
         attrs['src'] = path_bits.join('/')
-        Mercury.log('Image:' + attrs['src'] + ' Size: ' + width + 'x' + height)
         Mercury.trigger('action', {action: 'insertImage', value: attrs})
 
       when 'youtube_url'

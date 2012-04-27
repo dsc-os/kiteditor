@@ -94,9 +94,9 @@ class @Mercury.Region
 
   dataAttributes: ->
     data = {}
-    data[attr] = @element.attr('data-' + attr) for attr in Mercury.config.regions.dataAttributes
+    o = if @type=='simple' then jQuery(this.container[0]) else @element
+    data[attr] = o.attr('data-' + attr) for attr in Mercury.config.regions.dataAttributes
     return data
-
 
   serialize: ->
     return {
