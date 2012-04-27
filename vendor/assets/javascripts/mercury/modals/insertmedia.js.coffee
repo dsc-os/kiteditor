@@ -56,14 +56,16 @@
         attrs['width'] = width if width
         attrs['height'] = height if height
         size = 'original'
-        if width>0 || height>0
+          if width>0 || height>0
           Mercury.log("Adjusting image file")
           biggest = Math.max(height,width)
           if biggest<=100
             size = 'thumb'
           else if biggest<=300
+            size = 'small'
+          else if biggest<=500
             size = 'medium'
-          else if biggest<=600
+          else if biggest<=800
             size = 'large'
 
         path_bits = attrs['src'].split('/')

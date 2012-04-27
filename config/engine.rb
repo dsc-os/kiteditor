@@ -21,11 +21,12 @@ module Mercury
       Rails.application.routes.draw do
         #match '/editor(/*requested_uri)' => "mercury#edit", :as => :mercury_editor
 
-        match '/mercury/images/browse' => 'mercury/images#index'
-        put '/mercury/images/:id' => 'mercury/images#update'
-        namespace :mercury do
-          resources :images
-        end
+        # images handled by gnric (as assets)
+        #match '/mercury/images/browse' => 'mercury/images#index'
+        #put '/mercury/images/:id' => 'mercury/images#update'
+        #namespace :mercury do
+        #  resources :images
+        #end
 
         scope '/mercury' do
           match ':type/:resource' => "mercury#resource"
