@@ -56,7 +56,7 @@
         attrs['width'] = width if width
         attrs['height'] = height if height
         size = 'original'
-          if width>0 || height>0
+        if width>0 || height>0
           Mercury.log("Adjusting image file")
           biggest = Math.max(height,width)
           if biggest<=100
