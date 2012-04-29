@@ -3,7 +3,7 @@
   return Mercury.modal
 
 jQuery.extend Mercury.modal,
-  minWidth: 400
+  minWidth: 500
 
   show: (@url, @options = {}) ->
     Mercury.trigger('focus:window')
@@ -29,7 +29,7 @@ jQuery.extend Mercury.modal,
 
     @titleElement = @element.find('.mercury-modal-title')
     @contentContainerElement = @element.find('.mercury-modal-content-container')
-
+    
     @contentElement = @element.find('.mercury-modal-content')
 
     @element.appendTo(jQuery(@options.appendTo).get(0) ? 'body')
