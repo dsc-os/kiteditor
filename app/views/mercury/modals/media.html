@@ -1,4 +1,4 @@
-<form id="mercury_media" style="width:800px">
+<form id="mercury_media" style="height:895px; width: 800px;">
 
   <div class="mercury-display-pane-container">
     <div class="mercury-display-pane">
@@ -10,16 +10,22 @@
             <label class="label" for="media_image_url"><input name="media_type" type="radio" value="image_url" checked="checked"/>URL</label>
             <input class="selectable" id="media_image_url" name="media[image_url]" type="text"/>
             </li>
-            <li>
-            <label class="label">&nbsp;</label>
-            <a href="#" onClick="show_image_browser('media_image_url');">Browse Images</a>
-            </li>
           </ol>
       </fieldset>
 
-      <div id="image_browser" style="display: none">
-        Loading.  Please wait...
-      </div>
+       <fieldset class="inputs">
+        <legend><span>Internal Images</span></legend>
+        <ol>
+          <li id='open_browser_links'><a class='mercury-button' href="#" onClick="show_image_browser('media_image_url');">Browse Images</a> </li>
+          <li style="display: none;" id='close_browser_links'><a class='mercury-button' href="#" id='close_browser_link' onClick='close_link_browsers();'>Close</a>
+          </li>
+          <li id="image_browser" style="display: none;">
+            Loading please wait...
+          </li>
+        </ol>
+      </fieldset>
+
+
       <fieldset id="video_fields" class="inputs">
         <legend><span>Videos</span></legend>
         <ol>
