@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   # General Gem Information
   s.name        = 'mercury-rails'
   s.date        = '2011-11-15'
-  s.version     = '0.3.1'
-  s.authors     = ['Jeremy Jackson']
-  s.email       = ['jejacks0n@gmail.com']
-  s.homepage    = 'http://github.com/jejacks0n/mercury'
+  s.version     = '0.4-gnric-2.0'
+  s.authors     = ['Jeremy Jackson', 'DSC']
+  s.email       = ['jejacks0n@gmail.com', 'tech@dsc.net']
+  s.homepage    = 'http://github.com/dadamsuk/mercury'
   s.summary     = %Q{A fully featured and advanced HTML5 WYSIWYG editor written in CoffeeScript on top of Rails 3.1}
   s.description = %Q{A fully featured and advanced HTML5 WYSIWYG editor written in CoffeeScript on top of the Rails 3.1 asset stack}
   s.licenses    = ['MIT']
