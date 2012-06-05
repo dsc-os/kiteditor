@@ -184,6 +184,7 @@ class Mercury.uploader.File
     @fullSize = @file.size
     @readableSize = @file.size.toBytes()
     @name = @file.fileName
+    @name ||= @file.name
     @type = @file.type
 
     # add any errors if we need to
