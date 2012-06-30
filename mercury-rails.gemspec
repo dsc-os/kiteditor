@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   # General Gem Information
   s.name        = 'mercury-rails'
   s.date        = '2011-11-15'
-  s.version     = '0.4.2'
+  s.version     = '0.4.3'
   s.authors     = ['Jeremy Jackson', 'DSC']
   s.email       = ['jejacks0n@gmail.com', 'tech@dsc.net']
   s.homepage    = 'http://github.com/dadamsuk/mercury'
