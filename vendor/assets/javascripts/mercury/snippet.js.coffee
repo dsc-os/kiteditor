@@ -4,7 +4,7 @@ class @Mercury.Snippet
 
   @displayOptionsFor: (name) ->
     Mercury.modal Mercury.config.snippets.optionsUrl.replace(':name', name), {
-      title: 'Snippet Options'
+      title: 'Block Options'
       handler: 'insertSnippet'
       snippetName: name
     }
@@ -12,7 +12,7 @@ class @Mercury.Snippet
 
 
   @create: (name, options) ->
-    identity = "snippet_#{@all.length}"
+    identity = "block_#{@all.length}"
     instance = new Mercury.Snippet(name, identity, options)
     @all.push(instance)
     return instance
@@ -52,10 +52,13 @@ class @Mercury.Snippet
 
   loadPreview: (element, callback = null) ->
     #    @options_to_save = @options
+    save_data = jQuery.extend({}, @options)
+    save_data['identity'] = @identity
+    console.debug("Using identity: " + @identity)
     jQuery.ajax Mercury.config.snippets.previewUrl.replace(':name', @name), {
       headers: Mercury.ajaxHeaders()
       type: Mercury.config.snippets.method
-      data: @options
+      data: save_data
       success: (data) =>
         @data = data
         element.html(data)
