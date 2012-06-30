@@ -72,7 +72,7 @@ class @Mercury.Snippet
     Mercury.snippet = @
 #    @options = @options_to_save if @options_to_save
     Mercury.modal Mercury.config.snippets.optionsUrl.replace(':name', @name), {
-      title: 'Snippet Options',
+      title: 'Block Options',
       handler: 'insertSnippet',
       loadType: Mercury.config.snippets.method,
       loadData: @options
