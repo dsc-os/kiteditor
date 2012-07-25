@@ -69,7 +69,7 @@
             size = 'large'
 
         path_bits = attrs['src'].split('/')
-        path_bits[5] = size
+        path_bits[10] = size
         attrs['src'] = path_bits.join('/')
         Mercury.trigger('action', {action: 'insertImage', value: attrs})
 
