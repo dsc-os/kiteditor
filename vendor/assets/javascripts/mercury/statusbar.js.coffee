@@ -8,7 +8,7 @@ class @Mercury.Statusbar
 
   build: ->
     @element = jQuery('<div>', {class: 'mercury-statusbar'})
-    @aboutElement = jQuery('<a>', {class: "mercury-statusbar-about"}).appendTo(@element).html("Mercury Editor v#{Mercury.version}")
+    @aboutElement = jQuery('<a>', {class: "mercury-statusbar-about"}).appendTo(@element).html("DSC Kit Editor")
     @pathElement = jQuery('<div>', {class: 'mercury-statusbar-path'}).appendTo(@element)
 
     @element.css({visibility: 'hidden'}) unless @visible
@@ -20,7 +20,7 @@ class @Mercury.Statusbar
       @setPath(options.region.path()) if options.region && jQuery.type(options.region.path) == 'function'
 
     @aboutElement.on 'click', =>
-      Mercury.lightview('/mercury/lightviews/about.html', {title: "Mercury Editor v#{Mercury.version}"})
+      document.location = 'http://www.dsc.net'
 
 
   height: ->
