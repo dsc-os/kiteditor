@@ -17,6 +17,7 @@
 
     # if we're editing an image prefill the information
     if selection.is && image = selection.is('img')
+      @element.find('#media_image_class').val(image.attr('class'))
       @element.find('#media_image_url').val(image.attr('src'))
       @element.find('#media_image_alignment').val(image.attr('align'))
       width = image.width()
@@ -51,6 +52,7 @@
       when 'image_url'
         attrs = {src: @element.find('#media_image_url').val()}
         attrs['align'] = alignment if alignment = @element.find('#media_image_alignment').val()
+        attrs['class'] = klass if klass = @element.find('#media_image_class').val()
         width = @element.find('#media_image_width').val()
         height = @element.find('#media_image_height').val()
         attrs['width'] = width if width
