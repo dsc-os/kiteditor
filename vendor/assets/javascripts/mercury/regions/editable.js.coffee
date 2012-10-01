@@ -56,7 +56,7 @@ class @Mercury.Regions.Editable extends Mercury.Region
         # display a tooltip if we're in an anchor
         anchor = currentElement.closest('a', @element)
         if anchor.length && anchor.attr('href')
-          Mercury.tooltip(anchor, "#{anchor.attr('href')}: <a class='internal_link' href=\"#{anchor.attr('href')}?edit=1\" >Edit</a> <a class='internal_link' href=\"#{anchor.attr('href')}\" >View</a>", {position: 'below'})
+          Mercury.tooltip(anchor, "#{anchor.attr('href')}: <a class='internal_link' href=\"#{anchor.attr('href')}\" >Follow Link</a>", {position: 'below'})
         else
           Mercury.tooltip.hide()
 
