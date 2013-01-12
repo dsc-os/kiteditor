@@ -8,3 +8,4 @@ public/system
 pkg/
 mercury.ids
 .rvmrc
+kiteditor*gem
