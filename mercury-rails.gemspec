@@ -4,14 +4,14 @@ $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
 
   # General Gem Information
-  s.name        = 'mercury-rails'
-  s.date        = '2011-11-15'
-  s.version     = '0.4.9'
-  s.authors     = ['Jeremy Jackson', 'DSC']
-  s.email       = ['jejacks0n@gmail.com', 'tech@dsc.net']
-  s.homepage    = 'http://github.com/dadamsuk/mercury'
-  s.summary     = %Q{A fully featured and advanced HTML5 WYSIWYG editor written in CoffeeScript on top of Rails 3.1}
-  s.description = %Q{A fully featured and advanced HTML5 WYSIWYG editor written in CoffeeScript on top of the Rails 3.1 asset stack}
+  s.name        = 'kiteditor'
+  s.date        = '2013-01-12'
+  s.version     = '1.0'
+  s.authors     = ['DSC OS', 'Jeremy Jackson']
+  s.email       = ['os@dsc.net', 'jejacks0n@gmail.com']
+  s.homepage    = 'http://github.com/dsc-os/kiteditor'
+  s.summary     = %Q{An HTML5 editor for use with DSC's Kit, the CCMS.}
+  s.description = %Q{This is a fork of the wonderful Mercury Rails WYSIWYG editor, modified very slightly for use with DSC's Kit Community and Content Management System.  All credit for this Gem goes to the original author, Jeremy Jackson}
   s.licenses    = ['MIT']
 
 
@@ -44,5 +44,4 @@ Gem::Specification.new do |s|
   s.require_paths     = ["lib"]
 
 end
-
 
