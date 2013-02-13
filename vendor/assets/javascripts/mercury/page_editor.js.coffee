@@ -222,7 +222,6 @@ class @Mercury.PageEditor
     jQuery.ajax url, {
       headers: Mercury.ajaxHeaders()
       type: method || 'POST'
-      dataType: @options.saveDataType || 'json'
       data: {content: data, _method: method}
       success: =>
         Mercury.changes = false

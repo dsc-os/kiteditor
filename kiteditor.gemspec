@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
 
   # General Gem Information
   s.name        = 'kiteditor'
-  s.date        = '2013-01-21'
-  s.version     = '1.0.10'
+  s.date        = '2013-01-22'
+  s.version     = '1.0.11'
   s.authors     = ['DSC OS', 'Jeremy Jackson']
   s.email       = ['os@dsc.net', 'jejacks0n@gmail.com']
   s.homepage    = 'http://github.com/dsc-os/kiteditor'
