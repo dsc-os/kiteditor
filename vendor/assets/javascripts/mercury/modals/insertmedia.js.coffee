@@ -57,22 +57,24 @@
         height = @element.find('#media_image_height').val()
         attrs['width'] = width if width
         attrs['height'] = height if height
-        size = 'original'
-        if width>0 || height>0
-          Mercury.log("Adjusting image file")
-          biggest = Math.max(height,width)
-          if biggest<=100
-            size = 'thumb'
-          else if biggest<=300
-            size = 'small'
-          else if biggest<=500
-            size = 'medium'
-          else if biggest<=800
-            size = 'large'
+ 
+        if attrs['src'].indexOf('http')!=0
+          size = 'original'
+          if width>0 || height>0
+            Mercury.log("Adjusting image file")
+            biggest = Math.max(height,width)
+            if biggest<=100
+              size = 'thumb'
+            else if biggest<=300
+              size = 'small'
+            else if biggest<=500
+              size = 'medium'
+            else if biggest<=800
+              size = 'large'
 
-        path_bits = attrs['src'].split('/')
-        path_bits[10] = size
-        attrs['src'] = path_bits.join('/')
+          path_bits = attrs['src'].split('/')
+          path_bits[10] = size
+          attrs['src'] = path_bits.join('/')
         Mercury.trigger('action', {action: 'insertImage', value: attrs})
 
       when 'youtube_url'
