@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   # General Gem Information
   s.name        = 'kiteditor'
   s.date        = '2013-12-17'
-  s.version     = '1.0.18'
+  s.version     = '1.0.19'
   s.authors     = ['DSC OS', 'Jeremy Jackson']
   s.email       = ['os@dsc.net', 'jejacks0n@gmail.com']
   s.homepage    = 'http://github.com/dsc-os/kiteditor'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
 
   # Runtime Dependencies
-  s.add_runtime_dependency('rails', [">= 3.1.0"])
+  s.add_runtime_dependency('rails', [">= 4.0.0"])
   s.add_runtime_dependency('paperclip')
   s.add_runtime_dependency('coffee-script')
 
