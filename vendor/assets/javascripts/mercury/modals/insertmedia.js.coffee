@@ -57,6 +57,11 @@
         height = @element.find('#media_image_height').val()
         attrs['width'] = width if width
         attrs['height'] = height if height
+        
+        attrs['alt'] = @element.find("#media_image_alt").val()
+        padding = @element.find("#media_image_padding").val()
+        attrs['style'] = "padding: #{padding}" if (padding!="")
+
  
         if attrs['src'].indexOf('http')!=0
           size = 'original'
