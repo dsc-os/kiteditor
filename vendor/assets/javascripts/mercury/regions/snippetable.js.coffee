@@ -121,4 +121,9 @@ class @Mercury.Regions.Snippetable extends Mercury.Region
       @snippet.remove() if @snippet
       Mercury.trigger('hide:toolbar', {type: 'snippet', immediately: true})
 
+    cutSnippet: ->
+      cut_block(@snippet)
+      Mercury.trigger('hide:toolbar', {type: 'snippet', immediately: true})
+
+
   }

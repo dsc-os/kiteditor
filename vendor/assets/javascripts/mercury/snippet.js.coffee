@@ -33,6 +33,7 @@ class @Mercury.Snippet
   constructor: (@name, @identity, options = {}) ->
     @version = 0
     @data = ''
+    @really_save = false
     @history = new Mercury.HistoryBuffer()
     @setOptions(options)
 
@@ -54,7 +55,13 @@ class @Mercury.Snippet
     #    @options_to_save = @options
     save_data = jQuery.extend({}, @options)
     save_data['identity'] = @identity
-    jQuery.ajax Mercury.config.snippets.previewUrl.replace(':name', @name), {
+
+    if @really_save
+      base_url = Mercury.config.snippets.storeUrl
+    else
+      base_url = Mercury.config.snippets.previewUrl
+    
+    jQuery.ajax base_url.replace(':name', @name), {
       headers: Mercury.ajaxHeaders()
       type: Mercury.config.snippets.method
       data: save_data
@@ -69,13 +76,8 @@ class @Mercury.Snippet
 
   displayOptions: ->
     Mercury.snippet = @
-    Mercury.modal (Mercury.config.snippets.optionsUrl.replace(':name', @name) + "&instance_id=#{@identity}"), {
-      title: 'Block Options',
-      handler: 'insertSnippet',
-      loadType: Mercury.config.snippets.method,
-      loadData: @options
-    }
-
+    # TODO: block_options  
+    block_options_window(@name, @identity);
 
   setOptions: (@options) ->
     delete(@options['authenticity_token'])
@@ -84,6 +86,8 @@ class @Mercury.Snippet
     @history.push(@options)
     Mercury.log("Set Options: ", @options)
 
+  reallySave: ->
+    @really_save = true
 
   setVersion: (version = null) ->
     version = parseInt(version)

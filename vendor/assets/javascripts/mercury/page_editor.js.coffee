@@ -114,6 +114,7 @@ class @Mercury.PageEditor
       action.call(@, options)
 
     @document.on 'mousedown', (event) ->
+      console.log("HERE")
       Mercury.trigger('hide:dialogs')
       if Mercury.region
         Mercury.trigger('unfocus:regions') unless jQuery(event.target).closest(".#{Mercury.config.regions.className}").get(0) == Mercury.region.element.get(0)
@@ -215,6 +216,10 @@ class @Mercury.PageEditor
 
   save: (callback) ->
     url = @saveUrl ? Mercury.saveURL ? @iframeSrc()
+
+    # TODO
+    set_block_options(true, false)
+
     data = @serialize()
     Mercury.log('saving', data)
     data = jQuery.toJSON(data) unless @options.saveStyle == 'form'

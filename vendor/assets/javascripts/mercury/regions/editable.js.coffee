@@ -95,8 +95,11 @@ class @Mercury.Regions.Editable extends Mercury.Region
       return if @previewing
       if snippet = @element.find('img[data-snippet]').get(0)
         @focus()
-        Mercury.Snippet.displayOptionsFor(jQuery(snippet).data('snippet'))
-        @document.execCommand('undo', false, null)
+
+        # TODO: block_options
+        options = block_options_window(jQuery(snippet).data('snippet'), null)
+
+        #@document.execCommand('undo', false, null)
 
     # custom paste handling: we have to do some hackery to get the pasted content since it's not exposed normally
     # through a clipboard in firefox (heaven forbid), and to keep the behavior across all browsers, we manually detect
@@ -462,6 +465,12 @@ class @Mercury.Regions.Editable extends Mercury.Region
     removeSnippet: ->
       @snippet.remove() if @snippet
       Mercury.trigger('hide:toolbar', {type: 'snippet', immediately: true})
+
+    cutSnippet: ->
+      cut_block(@snippet) if @snippet
+      Mercury.trigger('hide:toolbar', {type: 'snippet', immediately: true})
+
+
   }
 
 

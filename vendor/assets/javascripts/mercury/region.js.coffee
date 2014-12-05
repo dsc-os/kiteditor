@@ -30,6 +30,7 @@ class @Mercury.Region
     Mercury.on 'action', (event, options) =>
       return if @previewing || Mercury.region != @
       @execCommand(options.action, options) if options.action
+      
 
     @element.on 'mousemove', (event) =>
       return if @previewing || Mercury.region != @
@@ -86,7 +87,11 @@ class @Mercury.Region
   snippets: ->
     snippets = {}
     for element in @element.find('[data-snippet]')
+      console.log(element);
+
       snippet = Mercury.Snippet.find(jQuery(element).data('snippet'))
+      console.log(snippet);
+      
       snippet.setVersion(jQuery(element).data('version'))
       snippets[snippet.identity] = snippet.serialize()
     return snippets
