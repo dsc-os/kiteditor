@@ -300,5 +300,5 @@
 .mercury-snippet-toolbar .mercury-editSnippet-button.active         { background-position: -24px -18px }
 .mercury-snippet-toolbar .mercury-removeSnippet-button              { background-position: -48px 0 }
 .mercury-snippet-toolbar .mercury-removeSnippet-button.active       { background-position: -48px -18px }
-.mercury-snippet-toolbar .mercury-dragsnippet-button                { background-position: -72px 0 }
-.mercury-snippet-toolbar .mercury-dragsnippet-button.active         { background-position: -72px -18px }
+.mercury-snippet-toolbar .mercury-cutSnippet-button                { background-position: -72px 0 }
+.mercury-snippet-toolbar .mercury-cutSnippet-button.active         { background-position: -72px -18px }
