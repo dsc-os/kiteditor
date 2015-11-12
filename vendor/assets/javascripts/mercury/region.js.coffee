@@ -87,13 +87,14 @@ class @Mercury.Region
   snippets: ->
     snippets = {}
     for element in @element.find('[data-snippet]')
-      console.log(element);
-
-      snippet = Mercury.Snippet.find(jQuery(element).data('snippet'))
-      console.log(snippet);
-      
-      snippet.setVersion(jQuery(element).data('version'))
-      snippets[snippet.identity] = snippet.serialize()
+      snippet_id = jQuery(element).data('snippet')
+      snippet = Mercury.Snippet.find(snippet_id)
+            
+      try 
+        snippet.setVersion(jQuery(element).data('version'))
+        snippets[snippet.identity] = snippet.serialize()
+      catch e
+        console.log "Error: Could not find #{snippet_id}"
     return snippets
 
 
