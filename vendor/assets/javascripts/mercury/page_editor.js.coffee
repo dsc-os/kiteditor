@@ -42,7 +42,7 @@ class @Mercury.PageEditor
 
       # jquery: make jQuery evaluate scripts within the context of the iframe window
       iframeWindow = @iframe.get(0).contentWindow
-      jQuery.globalEval = (data) -> (iframeWindow.execScript || (data) -> iframeWindow["eval"].call(iframeWindow, data))(data) if (data && /\S/.test(data))
+      # jQuery.globalEval = (data) -> (iframeWindow.execScript || (data) -> iframeWindow["eval"].call(iframeWindow, data))(data) if (data && /\S/.test(data))
 
       iframeWindow.Mercury = Mercury
       iframeWindow.History = History if window.History && History.Adapter
